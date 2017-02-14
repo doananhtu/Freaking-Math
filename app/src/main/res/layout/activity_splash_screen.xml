@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_splash_screen"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
+    android:background="#202531"
     tools:context="myapp.anhtu.com.freakingmath.activity.SplashScreen">
-    aaa
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/jinx"
-        android:id="@+id/imageView" />
+        app:srcCompat="@drawable/fm256"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
 
-</LinearLayout>
+    <TextView
+        android:text="© Anh Tu 2017"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/txtCopyright" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/logo"
+        android:id="@+id/imageView3"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

@@ -1,13 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/layoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="16dp"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="10dp"
+    android:background="#1be1e4"
     tools:context="myapp.anhtu.com.freakingmath.activity.MainActivity">
+
+
+    <TextView
+        android:text="1 + 1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/txtOperator"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="65sp" />
+
+    <TextView
+        android:text="= 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtOperator"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="65sp"
+        android:id="@+id/txtResult" />
+
+    <ImageButton
+        android:text="Button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/btnTrue"
+        android:background="#e9fff9"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/btntrue" />
+
+    <ImageButton
+        android:text="Button"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/btnFalse"
+        android:background="#e9fff9"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/btnfalse" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/prbTime" />
 
 </RelativeLayout>
