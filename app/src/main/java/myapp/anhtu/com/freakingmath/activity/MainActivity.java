@@ -8,6 +8,8 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -20,7 +22,7 @@ import myapp.anhtu.com.freakingmath.R;
 import static myapp.anhtu.com.freakingmath.ulti.lib.buttonEffect;
 
 public class MainActivity extends AppCompatActivity {
-    TextView txtOperator, txtResult;
+    TextView txtOperator, txtResult, txtScore;
     ImageButton btnTrue, btnFalse;
     ProgressBar prbTime;
     CountDownTimer timer;
@@ -32,10 +34,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         //
         btnTrue = (ImageButton)findViewById(R.id.btnTrue);
         btnFalse = (ImageButton)findViewById(R.id.btnFalse);
+        txtScore = (TextView)findViewById(R.id.txtScore);
+        txtScore.setText(String.valueOf(score));
         prbTime = (ProgressBar)findViewById(R.id.prbTime);
         soundBtn = MediaPlayer.create(MainActivity.this,R.raw.btnsound);
         buzz = MediaPlayer.create(MainActivity.this,R.raw.buzz);
@@ -74,15 +80,6 @@ public class MainActivity extends AppCompatActivity {
                                         score = 0; //refesh score
                                     }
                                 });
-
-                                builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        moveTaskToBack(true);
-                                        android.os.Process.killProcess(android.os.Process.myPid());
-                                        System.exit(1);
-                                    }
-                                });
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             }
@@ -90,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     };
                     timer.start();
                     score += 1;
+                    txtScore.setText(String.valueOf(score));
                     if(score>=0 && score<=10) //Tăng level
                         trueOrFalse = createOperator(1); //Tạo một phép tính mới.
                     else if(score>10 && score<=20)
@@ -97,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     else if(score>20)
                         trueOrFalse = createOperator(3);
                 }else{
+                    timer.cancel(); // fix bug độ trễ của countDownTimer
                     buzz.start();
                     builder.setMessage("Your Score: "+ String.valueOf(score));
                     builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
@@ -104,15 +103,6 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             changeColor();
                             score = 0; //refesh score
-                        }
-                    });
-
-                    builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            moveTaskToBack(true);
-                            android.os.Process.killProcess(android.os.Process.myPid());
-                            System.exit(1);
                         }
                     });
                     AlertDialog dialog = builder.create();
@@ -149,15 +139,6 @@ public class MainActivity extends AppCompatActivity {
                                         score = 0; //refesh score
                                     }
                                 });
-
-                                builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        moveTaskToBack(true);
-                                        android.os.Process.killProcess(android.os.Process.myPid());
-                                        System.exit(1);
-                                    }
-                                });
                                 AlertDialog dialog = builder.create();
                                 dialog.show();
                             }
@@ -165,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     };
                     timer.start();
                     score += 1;
+                    txtScore.setText(String.valueOf(score));
                     if(score>=0 && score<=10) //Tăng level
                         trueOrFalse = createOperator(1); //Tạo một phép tính mới.
                     else if(score>10 && score<=20)
@@ -172,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                     else if(score>20)
                         trueOrFalse = createOperator(3);
                 }else{
+                    timer.cancel();
                     buzz.start();
                     builder.setMessage("Your Score: "+ String.valueOf(score));
                     builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
@@ -179,15 +162,6 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             changeColor();
                             score = 0; //refesh score
-                        }
-                    });
-
-                    builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            moveTaskToBack(true);
-                            android.os.Process.killProcess(android.os.Process.myPid());
-                            System.exit(1);
                         }
                     });
                     AlertDialog dialog = builder.create();
