@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="myapp.anhtu.com.freakingmath">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- Splash screen -->
-        <activity android:name=".activity.SplashScreen"
+        <activity
+            android:name=".activity.SplashScreen"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <!-- Main activity -->
-        <activity android:name=".activity.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <!-- ShowScore activity -->
+        <activity
+            android:name=".activity.ShowScoreActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activity.score"></activity>
     </application>
 
 </manifest>

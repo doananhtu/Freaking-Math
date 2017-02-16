@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="#0fd3ed"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="New High Score"
+            android:textSize="25sp"
+            android:textColorHint="#fff"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:ems="10"
+            android:id="@+id/txtTitleDialog"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/cup" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Player's name"
+            android:textColorHint="#fff"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:ems="10"
+            android:id="@+id/edtName"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="OK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnOk"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:background="#0fd3ed" />
+    </LinearLayout>
+
+</LinearLayout>
