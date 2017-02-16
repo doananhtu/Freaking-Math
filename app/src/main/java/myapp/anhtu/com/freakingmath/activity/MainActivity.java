@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Game Over");
         builder.setCancelable(false);
         trueOrFalse = createOperator(1); //trả về boolean kết quả đúng hay sai.
-        db.delAllScore();
+
         //Khi chọn đáp án đúng
         btnTrue.setOnClickListener(new View.OnClickListener() {
             @Override
