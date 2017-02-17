@@ -66,6 +66,21 @@ public class DatabaseFreakingMath extends SQLiteOpenHelper {
         return playerList;
     }
 
+    public ArrayList<Player> getTopScore(){
+        ArrayList<Player> playerList = new ArrayList<>();
+        String sql = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + KEY_SCORE + " DESC LIMIT 10";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql,null);
+        cursor.moveToFirst();
+
+        while(cursor.isAfterLast()==false){
+            Player player = new Player(cursor.getString(1),cursor.getInt(2));
+            playerList.add(player);
+            cursor.moveToNext();
+        }
+        return playerList;
+    }
+
     public int getMaxScore(){
         int score = 0;
         SQLiteDatabase db = getWritableDatabase();

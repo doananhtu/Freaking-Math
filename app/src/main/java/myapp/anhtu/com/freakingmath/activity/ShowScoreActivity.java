@@ -26,7 +26,7 @@ public class ShowScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_score);
 
         lv = (ListView)findViewById(R.id.listViewScore);
-        PlayerAdapter adapter = new PlayerAdapter(ShowScoreActivity.this,R.layout.activity_score,db.getAllScore());
+        PlayerAdapter adapter = new PlayerAdapter(ShowScoreActivity.this,R.layout.activity_score,db.getTopScore());
         lv.setAdapter(adapter);
     }
 }
