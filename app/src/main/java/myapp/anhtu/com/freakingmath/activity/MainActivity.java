@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onFinish() {
                             if (countDown >= 100) {
-                                maxScore = db.getMaxScore();
+                                maxScore = db.getMinHighScore();
                                 boolean isHighScore = false;
                                 if (maxScore==0 && score != 0) {
                                     dialogCustom(cusDialog);
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         trueOrFalse = createOperator(3);
                 } else {
                     //Xem có điểm cao hơn hay ko?
-                    maxScore = db.getMaxScore();
+                    maxScore = db.getMinHighScore();
                     boolean isHighScore = false;
                     if (maxScore==0 && score != 0) {
                         dialogCustom(cusDialog);
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onFinish() {
                             if (countDown >= 100) {
                                 if (countDown >= 100) {
-                                    maxScore = db.getMaxScore();
+                                    maxScore = db.getMinHighScore();
                                     boolean isHighScore = false;
                                     if (maxScore==0 && score != 0) {
                                         dialogCustom(cusDialog);
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                         trueOrFalse = createOperator(3);
                 } else {
                     //Xem có điểm cao hơn hay ko?
-                    maxScore = db.getMaxScore();
+                    maxScore = db.getMinHighScore();
                     boolean isHighScore = false;
                     if (maxScore==0 && score != 0) {
                         dialogCustom(cusDialog);

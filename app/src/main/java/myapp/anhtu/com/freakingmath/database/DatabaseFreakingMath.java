@@ -68,7 +68,7 @@ public class DatabaseFreakingMath extends SQLiteOpenHelper {
 
     public ArrayList<Player> getTopScore(){
         ArrayList<Player> playerList = new ArrayList<>();
-        String sql = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + KEY_SCORE + " DESC LIMIT 10";
+        String sql = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + KEY_SCORE + " DESC LIMIT 20";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql,null);
         cursor.moveToFirst();
@@ -81,10 +81,11 @@ public class DatabaseFreakingMath extends SQLiteOpenHelper {
         return playerList;
     }
 
-    public int getMaxScore(){
+    public int getMinHighScore(){
         int score = 0;
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "SELECT MAX("+KEY_SCORE+") FROM " +TABLE_NAME;
+        String sql = "SELECT MIN("+KEY_SCORE+") FROM (SELECT * FROM " + TABLE_NAME + " ORDER BY " + KEY_SCORE + " DESC LIMIT 20)";
+//        String sql = "SELECT MAX("+KEY_SCORE+") FROM " +TABLE_NAME;
         Cursor cursor = db.rawQuery(sql,null);
         cursor.moveToFirst();
         if(cursor.getCount()>0)
